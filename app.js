@@ -46,7 +46,7 @@ for(let btn of btnOperators) {
     btn.addEventListener('click', (e) => {
         let currentNum = display.innerHTML;
         let lastNum = currentNum[currentNum.length - 1];
-        if (lastNum === "+" || lastNum === "-" || lastNum === "×" 
+        if (lastNum === "+" || lastNum === "-" || lastNum === "" 
         || lastNum === "÷") {
             let newNum = currentNum.substring(0, currentNum.length - 1) +
             e.target.innerHTML;
@@ -71,7 +71,20 @@ equalsBtn.addEventListener('click', () => {
         operators.splice(add, 1);
         add = operators.indexOf("+");
     }
-   
+    // Subtraction
+    let subtract = operators.indexOf("-");
+    while (subtract != -1) {
+        numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
+        operators.splice(subtract, 1);
+        subtract = operators.indexOf("÷");
+    }
+    // Multiplication
+    let multiply = operators.indexOf("×");
+    while (multiply != -1) {
+        numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
+        operators.splice(multiply, 1);
+        multiply = operators.indexOf("×");
+    }
     // Division
     let divide = operators.indexOf("÷");
     while (divide != -1) {

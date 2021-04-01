@@ -23,6 +23,11 @@ h1  {
     height: 70px;
     background-color: #eddcd2;
     border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3em;
+    padding-right: 10px;
 }
 
 .operators {

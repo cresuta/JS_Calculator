@@ -1,0 +1,17 @@
+* {
+    font-family: 'EB Garamond', serif;
+}
+
+h1  {
+    text-align: center;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 20px;
+    border: 2px solid red;
+    display: grid;
+
+}

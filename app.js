@@ -30,8 +30,8 @@ for(let btn of btnNumbers) {
         let lastNum = currentNum[currentNum.length - 1];
         if (resultDisplayed === false) {
             display.innerHTML += e.target.innerHTML;
-        } else if (resultDisplayed && lastNum === "&plus;" || lastNum === "&minus;" || lastNum === "&times;" 
-        || lastNum === "&divide;") {
+        } else if (resultDisplayed && lastNum === "+" || lastNum === "-" || lastNum === "×" 
+        || lastNum === "÷") {
             resultDisplayed = false;
             display.innerHTML += e.target.innerHTML;
         } else {
@@ -40,10 +40,29 @@ for(let btn of btnNumbers) {
             display.innerHTML += e.target.innerHTML;
         }
     })
-};
+}
 
 for(let btn of btnOperators) {
     btn.addEventListener('click', (e) => {
-
+        let currentNum = display.innerHTML;
+        let lastNum = currentNum[currentNum.length - 1];
+        if (lastNum === "+" || lastNum === "-" || lastNum === "×" 
+        || lastNum === "÷") {
+            let newNum = currentNum.substring(0, currentNum.length - 1) +
+            e.target.innerHTML;
+            display.innerHTML = newNum;
+        } else if (currentNum.length === 0) {
+            console.log('please enter a number')
+        } else {
+            display.innerHTML += e.target.innerHTML;
+        }
     })
 }
+
+equalsBtn.addEventListener('click', () => {
+    let inputCalculation = display.innerHTML;
+    let numbers = inputCalculation.split(/\+|\-|\×|\÷/);
+    let operators = inputCalculation.replace(/[0-9]|\./g, "").split("");
+    console.log(numbers)
+    console.log(operators)
+})

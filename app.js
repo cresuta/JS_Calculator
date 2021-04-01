@@ -15,4 +15,14 @@ const num3 = document.querySelector('.three');
 const num0 = document.querySelector('.zero');
 const decimalBtn = document.querySelector('.decimal');
 const clearBtn = document.querySelector('.clear');
+const display = document.querySelector('.display');
 
+const buttons = [addBtn,subtractBtn,multiplyBtn,divideBtn,num0,
+num1,num2,num3,num4,num5,num6,num7,num8,num9,equalsBtn,decimalBtn,
+clearBtn];
+
+for(let btn of buttons) {
+    btn.addEventListener('click', () => {
+        display.innerHTML = btn.innerHTML;
+    })
+}

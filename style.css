@@ -8,7 +8,7 @@ h1  {
 
 .container {
     width: 400px;
-    height: 380px;
+    height: 390px;
     margin: auto;
     margin-top: 20px;
     border-radius: 5px;
@@ -54,7 +54,7 @@ h1  {
     border-radius: 5px;
 }
 
-.equal-sign {
+.equals {
     grid-column-start: 4;
     grid-column-end: span col4-end;
     grid-row-start: 1;

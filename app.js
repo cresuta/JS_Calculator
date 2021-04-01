@@ -16,13 +16,34 @@ const num0 = document.querySelector('.zero');
 const decimalBtn = document.querySelector('.decimal');
 const clearBtn = document.querySelector('.clear');
 const display = document.querySelector('.display');
+let resultDisplayed = false;
 
-const buttons = [addBtn,subtractBtn,multiplyBtn,divideBtn,num0,
-num1,num2,num3,num4,num5,num6,num7,num8,num9,equalsBtn,decimalBtn,
-clearBtn];
+const btnNumbers = [num0,num1,num2,num3,num4,num5,num6,num7,
+num8,num9,decimalBtn,clearBtn];
 
-for(let btn of buttons) {
-    btn.addEventListener('click', () => {
-        display.innerHTML = btn.innerHTML;
+const btnOperators = [addBtn,subtractBtn,multiplyBtn,divideBtn];
+
+
+for(let btn of btnNumbers) {
+    btn.addEventListener('click', (e) => {
+        let currentNum = display.innerHTML;
+        let lastNum = currentNum[currentNum.length - 1];
+        if (resultDisplayed === false) {
+            display.innerHTML += e.target.innerHTML;
+        } else if (resultDisplayed && lastNum === "&plus;" || lastNum === "&minus;" || lastNum === "&times;" 
+        || lastNum === "&divide;") {
+            resultDisplayed = false;
+            display.innerHTML += e.target.innerHTML;
+        } else {
+            resultDisplayed = false;
+            display.innerHTML = '';
+            display.innerHTML += e.target.innerHTML;
+        }
+    })
+};
+
+for(let btn of btnOperators) {
+    btn.addEventListener('click', (e) => {
+
     })
 }

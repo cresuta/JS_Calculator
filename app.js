@@ -66,3 +66,7 @@ equalsBtn.addEventListener('click', () => {
     console.log(numbers)
     console.log(operators)
 })
+
+clearBtn.addEventListener('click', () => {
+    display.innerHTML = '';
+})

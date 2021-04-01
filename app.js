@@ -63,8 +63,25 @@ equalsBtn.addEventListener('click', () => {
     let inputCalculation = display.innerHTML;
     let numbers = inputCalculation.split(/\+|\-|\×|\÷/);
     let operators = inputCalculation.replace(/[0-9]|\./g, "").split("");
-    console.log(numbers)
-    console.log(operators)
+    
+    // Addition
+    let add = operators.indexOf("+");
+    while(add != -1) {
+        numbers.splice(add, 2, parseFloat(numbers[add]) + parseFloat(numbers[add + 1]));
+        operators.splice(add, 1);
+        add = operators.indexOf("+");
+    }
+   
+    // Division
+    let divide = operators.indexOf("÷");
+    while (divide != -1) {
+        numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
+        operators.splice(divide, 1);
+        divide = operators.indexOf("÷");
+    }
+
+    display.innerHTML = numbers[0];
+    resultDisplayed = true;
 })
 
 clearBtn.addEventListener('click', () => {

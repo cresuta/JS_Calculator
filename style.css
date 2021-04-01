@@ -8,10 +8,33 @@ h1  {
 
 .container {
     width: 400px;
-    height: 400px;
+    height: 350px;
     margin: auto;
     margin-top: 20px;
     border: 2px solid red;
     display: grid;
+    grid-template-rows: auto auto auto;
+}
 
+.display {
+    margin: 20px 20px;
+    height: 70px;
+    background-color: green;
+}
+
+.operators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 10px;
+    margin: 0 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 0 20px;
 }

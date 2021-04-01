@@ -51,8 +51,15 @@ h1  {
 }
 
 .grid-item:hover {
-    font-size: 1.70em;
     background-color: #cb997e;
+}
+
+.grid-item:focus {
+    outline: 0;
+}
+
+.grid-item:active {
+    transform: translateY(2px);
 }
 
 .numbers .item {
